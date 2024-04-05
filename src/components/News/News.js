@@ -7,9 +7,8 @@ import NewsItem from "../NewsItem/NewsItem";
 import { v4 as uuidv4 } from "uuid";
 import { Col, Row } from "react-bootstrap";
 import { header } from "../../config/config";
-import { endpointPath } from "../../config/api";
+import { endpointSearch } from "../../config/api";
 import { Container, Header, card } from "./index";
-import { useParams } from "react-router-dom";
 
 function News({ newscategory }) {
   const [articles, setArticles] = useState([]);
@@ -25,10 +24,11 @@ function News({ newscategory }) {
 
   const updatenews = async () => {
     try {
-      const response = await axios.get(endpointPath(category));
+      const response = await axios.get(endpointSearch(category));
       setLoading(true);
-      const parsedData = response.data;
-      setArticles(parsedData.results);
+      const parsedData = response.data.response.docs;
+      console.log(parsedData);
+      setArticles(parsedData);
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -54,17 +54,17 @@ function News({ newscategory }) {
                   <Col sm={12} md={6} lg={4} xl={3} style={card} key={uuidv4()}>
                     <NewsItem
                       title={element.title}
-                      description={element.abstract}
-                      published={element.publishedAt}
-                      author={element.byline === "" ? "unknown" : element.byline}
+                      description={element?.snippet || element.abstract}
+                      published={element.pub_date}
+                      author={element.byline.original}
                       alt="News image"
-                      publishedAt={element.publishedAt}
+                      publishedAt={element.pub_date}
                       imageUrl={
                         element.multimedia.length === 0
                           ? NullImage
-                          : element.multimedia[0].url
+                          : `https://static01.nyt.com/${element.multimedia[0].url}`
                       }
-                      urlNews={element.url}
+                      urlNews={element.web_url}
                     />
                   </Col>
                 );
