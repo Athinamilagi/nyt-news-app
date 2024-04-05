@@ -59,3 +59,7 @@ npm start
 ## Acknowledgements
 
 - This app utilizes the New York Times public API for fetching news articles. Visit their website for more information: [NY Times Developer API](https://developer.nytimes.com/)
+
+## Live URL
+
+[View Live Website](https://nyt-news-app-git-master-athinamilagis-projects.vercel.app/)
