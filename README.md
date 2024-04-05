@@ -39,7 +39,7 @@ git clone https://github.com/Athinamilagi/nyt-news-app
 2. Navigate to the project directory:
 
 ```
-cd react-news-app
+cd nyt-news-app
 ```
 
 3. Install the required dependencies:
