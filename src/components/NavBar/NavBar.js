@@ -21,7 +21,7 @@ import {
 } from "./index";
 
 function NavBar() {
-  config()
+  // config()
   const navigate = useNavigate();
   const navRef = useRef(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -98,11 +98,12 @@ function NavBar() {
           </Form>
         </Navbar.Collapse>
         <SuprSendInbox
-          workspaceKey={process.env.REACT_APP_SUPRSEND_WORKSPACE_KEY}
+          workspaceKey={import.meta.env.VITE_REACT_APP_SUPRSEND_WORKSPACE_KEY}
           subscriberId="<subscriber_id>"
           distinctId="<distinct_id>"
         />
       </Navbar>
+      {console.log(import.meta.env.VITE_REACT_APP_SUPRSEND_WORKSPACE_KEY)}
     </>
   );
 }
