@@ -8,7 +8,6 @@ import { navbarBrand, navs } from "../../config/config";
 import logoImage from "../Images/logo.png";
 import SuprSendInbox from "@suprsend/react-inbox";
 import "react-toastify/dist/ReactToastify.css";
-import { config } from "dotenv";
 import {
   btnColor,
   formInput,
@@ -98,12 +97,12 @@ function NavBar() {
           </Form>
         </Navbar.Collapse>
         <SuprSendInbox
-          workspaceKey={import.meta.env.VITE_REACT_APP_SUPRSEND_WORKSPACE_KEY}
+          workspaceKey={"nz1ue991NIwZZTK5aceq"}
           subscriberId="<subscriber_id>"
           distinctId="<distinct_id>"
         />
       </Navbar>
-      {console.log(import.meta.env.VITE_REACT_APP_SUPRSEND_WORKSPACE_KEY)}
+
     </>
   );
 }
