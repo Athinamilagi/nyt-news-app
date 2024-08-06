@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { navbarBrand, navs } from "../../config/config";
 import logoImage from "../Images/logo.png";
+import SuprSendInbox from "@suprsend/react-inbox";
+import "react-toastify/dist/ReactToastify.css";
+import { config } from "dotenv";
 import {
   btnColor,
   formInput,
@@ -18,8 +21,8 @@ import {
 } from "./index";
 
 function NavBar() {
+  config()
   const navigate = useNavigate();
-
   const navRef = useRef(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -54,15 +57,13 @@ function NavBar() {
           <img src={logoImage} alt="Logo" style={logo} />
           {navbarBrand}
         </Navbar.Brand>
-        {isCollapsed && (
+        {isCollapsed ? (
           <Navbar.Toggle
             className="border-0"
             aria-controls="basic-navbar-nav"
             onClick={() => setIsCollapsed(!isCollapsed)}
           />
-        )}
-
-        {!isCollapsed && (
+        ) : (
           <IoCloseOutline
             size={40}
             style={closeBtn}
@@ -73,11 +74,7 @@ function NavBar() {
           <Nav style={nav} className="mr-auto" onClick={handleNavClick}>
             {navs.map((navItem) => (
               <LinkContainer to={navItem.page} key={uuidv4()}>
-                <Nav.Link
-                  className="ml-2"
-                >
-                  {navItem.nav}
-                </Nav.Link>
+                <Nav.Link className="ml-2">{navItem.nav}</Nav.Link>
               </LinkContainer>
             ))}
           </Nav>
@@ -100,6 +97,11 @@ function NavBar() {
             </Button>
           </Form>
         </Navbar.Collapse>
+        <SuprSendInbox
+          workspaceKey={process.env.REACT_APP_SUPRSEND_WORKSPACE_KEY}
+          subscriberId="<subscriber_id>"
+          distinctId="<distinct_id>"
+        />
       </Navbar>
     </>
   );

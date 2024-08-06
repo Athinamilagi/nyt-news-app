@@ -17,12 +17,7 @@ function App() {
               exact
               key={uuidv4()}
               path={path.path}
-              element={
-                <News
-                  key={path.key}
-                  newscategory={path.category}
-                />
-              }
+              element={<News key={path.key} newscategory={path.category} />}
             />
           ))}
           <Route path="/search/:query" element={<Search />} />

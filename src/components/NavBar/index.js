@@ -2,6 +2,8 @@ export const navBar = {
   backgroundColor: "#fafafa",
   padding: "20px",
   fontSize: "18px",
+  display: "flex",
+  alignItem: "center",
 };
 
 export const navBrand = {
@@ -20,6 +22,7 @@ export const closeBtn = {
   color: "#ffffff80",
   cursor: "pointer",
   marginInlineEnd: "6px",
+  color: 'Yellow'
 };
 
 export const searchForm = {
@@ -35,7 +38,7 @@ export const formInput = {
 
 export const logo = {
   width: "45px",
-  borderRadius : "999px",
+  borderRadius: "999px",
 };
 
 export const btnColor = {
