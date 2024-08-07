@@ -98,8 +98,8 @@ function NavBar() {
         </Navbar.Collapse>
         <SuprSendInbox
           workspaceKey={"nz1ue991NIwZZTK5aceq"}
-          subscriberId="<subscriber_id>"
-          distinctId="<distinct_id>"
+          subscriberId={"2813"}
+          distinctId={"2813"}
         />
       </Navbar>
 
