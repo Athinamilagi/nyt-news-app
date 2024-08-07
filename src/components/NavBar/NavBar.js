@@ -97,9 +97,9 @@ function NavBar() {
           </Form>
         </Navbar.Collapse>
         <SuprSendInbox
-          workspaceKey={"nz1ue991NIwZZTK5aceq"}
-          subscriberId={"2813"}
-          distinctId={"2813"}
+          workspaceKey="gpqSPJVS3yk4NkGzBZWOwafVAVys2itml2HVbwIKg18"
+          subscriberId="2813"
+          distinctId="2813"
         />
       </Navbar>
 
